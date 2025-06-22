@@ -67,66 +67,25 @@ winget install Microsoft.VisualStudioCode
 
 pyenv allows you to manage multiple Python versions easily.
 
-#### Option 1: Using Git Clone
 1. Open PowerShell as Administrator
 2. Run the following commands:
    ```powershell
-   git clone https://github.com/pyenv-win/pyenv-win.git %USERPROFILE%\.pyenv
-   ```
-
-#### Option 2: Using Chocolatey
-```cmd
-choco install pyenv-win
-```
-
-#### Option 3: Manual Installation
-1. Download the latest release from [pyenv-win releases](https://github.com/pyenv-win/pyenv-win/releases)
-2. Extract to `%USERPROFILE%\.pyenv`
-
-#### Configure Environment Variables
-1. Open **System Properties** → **Advanced** → **Environment Variables**
-2. Add these to **User Variables**:
-   - `PYENV`: `%USERPROFILE%\.pyenv\pyenv-win`
-   - `PYENV_ROOT`: `%USERPROFILE%\.pyenv`
-   - `PYENV_HOME`: `%USERPROFILE%\.pyenv\pyenv-win`
-
-3. Add these to your **PATH** (User Variables):
-   - `%USERPROFILE%\.pyenv\pyenv-win\bin`
-   - `%USERPROFILE%\.pyenv\pyenv-win\shims`
-
-4. Restart your terminal and verify:
-   ```cmd
-   pyenv --version
+   Set-ExecutionPolicy Unrestricted -Force
+   Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
    ```
 
 ---
 
 ## 3. Install Python 3.12 with pyenv
 
-1. **List available Python versions:**
-   ```cmd
-   pyenv install --list
-   ```
-
 2. **Install Python 3.12:**
    ```cmd
-   pyenv install 3.12.0
+   pyenv install 3.12
    ```
 
 3. **Set Python 3.12 as global default:**
    ```cmd
-   pyenv global 3.12.0
-   ```
-
-4. **Verify installation:**
-   ```cmd
-   python --version
-   pip --version
-   ```
-
-5. **Refresh environment:**
-   ```cmd
-   pyenv rehash
+   pyenv global 3.12
    ```
 
 ---
@@ -149,37 +108,9 @@ choco install pyenv-win
 - Install **Python** by Microsoft
 - Install **Pylance** by Microsoft (usually comes with Python extension)
 
-#### Optional but Recommended Extensions:
-- **Python Debugger** - Enhanced debugging capabilities
-- **autoDocstring** - Automatic docstring generation
-- **Python Indent** - Correct Python indentation
-- **GitLens** - Enhanced Git capabilities
-- **Prettier** - Code formatter
-- **Material Icon Theme** - Better file icons
-
 ---
 
-## 5. Login to GitHub Copilot
-
-### Prerequisites
-- GitHub account with Copilot subscription (free for students, educators, and open-source maintainers)
-- If you don't have access, sign up at [GitHub Copilot](https://github.com/features/copilot)
-
-### Login Steps
-1. **In VS Code, open Command Palette** (`Ctrl+Shift+P`)
-2. **Type:** `GitHub Copilot: Sign In`
-3. **Follow the authentication flow:**
-   - VS Code will open a browser window
-   - Authorize VS Code to access your GitHub account
-   - Return to VS Code when prompted
-
-4. **Verify Copilot is active:**
-   - Look for the Copilot icon in the status bar (bottom-right)
-   - Icon should show as active (not crossed out)
-
----
-
-## 6. Create New Repository
+## 5. Create New Repository
 
 ### Option 1: Using VS Code (Recommended)
 
@@ -214,7 +145,7 @@ choco install pyenv-win
 
 ---
 
-## 7. Try Vibe Coding with Copilot
+## 6. Try Vibe Coding with Copilot
 
 ### What is Vibe Coding?
 Vibe coding is a collaborative approach where you describe what you want to build in natural language, and AI tools like GitHub Copilot help generate the code. It's about maintaining the flow and creativity while AI handles boilerplate and implementation details.
